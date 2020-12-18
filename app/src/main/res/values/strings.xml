@@ -9,4 +9,14 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="g_p_b_n">Gộp bàn</string>
+    <string name="t_n_b_n"><![CDATA[<Tên bàn>]]></string>
+    <string name="v_tr">Vị trí:</string>
+    <string name="vitri"><![CDATA[<Vị trí>]]></string>
+    <string name="soghe">Số ghế</string>
+    <string name="soghetxt"><![CDATA[<Số ghế>]]></string>
+    <string name="sokhach">Số khách:</string>
+    <string name="songuoi">Nhập số người</string>
+    <string name="moban">Mở bàn</string>
+    <string name="tenban">Tên bàn:</string>
 </resources>

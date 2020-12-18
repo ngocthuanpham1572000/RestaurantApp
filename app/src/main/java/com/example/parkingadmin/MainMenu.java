@@ -3,8 +3,10 @@ package com.example.parkingadmin;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainMenu extends AppCompatActivity implements View.OnClickListener {
@@ -14,6 +16,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     private CardView food;
     private CardView table;
     private CardView logout;
+    TextView TenDangNhap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +25,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
             getSupportActionBar().hide();
         }
         initObjects();
+
 
     }
 
@@ -39,8 +43,9 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
         info.setOnClickListener(this);
         logout.setOnClickListener(this);
-
-
+        TenDangNhap=findViewById(R.id.txtTaiKhoan);
+        Intent intent=getIntent();
+        TenDangNhap.setText(intent.getStringExtra(MainActivity.Ma));
     }
 
 
@@ -48,12 +53,11 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     public void onClick(View v) {
 
         switch (v.getId()){
+            case R.id.ban: {
+                Intent intent = new Intent(this, activity_ban.class);
+                startActivity(intent);
+            }break;
 
-
-            case R.id.ban:
-
-                Toast.makeText(this, "Bàn", Toast.LENGTH_SHORT).show();
-                break;
             case R.id.food:
 
                 Toast.makeText(this, "Đồ ăn", Toast.LENGTH_SHORT).show();
@@ -70,6 +74,10 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
         }
 
+
+    }
+
+    public void ClickBan(View view) {
 
     }
 }

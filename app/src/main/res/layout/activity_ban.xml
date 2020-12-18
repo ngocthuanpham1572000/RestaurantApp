@@ -4,24 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_menu_food">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:id="@+id/dashboard_fragment_Progressdialog"
-        android:visibility="invisible"
-        android:elevation="1dp">
-
-        <ProgressBar
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_centerInParent="true"/>
-
-    </RelativeLayout>
-
-
-
+    tools:context=".activity_ban">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -40,14 +23,12 @@
             android:layout_centerInParent="true"
             android:background="@drawable/rounded_corner_search"
             android:drawableLeft="@drawable/ic_search"
-            android:hint="Tìm kiếm món ăn"
+            android:hint="Tìm kiếm bàn"
             android:maxLines="1"
             android:padding="4dp"
             android:paddingStart="10dp"></EditText>
 
     </RelativeLayout>
-
-
 
 
     <RelativeLayout
@@ -70,8 +51,6 @@
     </RelativeLayout>
 
 
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewDashboard"
         android:layout_width="match_parent"
@@ -79,6 +58,4 @@
         android:layout_below="@+id/RLSearch"
         android:focusable="true"
         android:focusableInTouchMode="true" />
-
-
-    </RelativeLayout>
+</RelativeLayout>
