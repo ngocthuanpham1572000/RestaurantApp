@@ -12,9 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.squareup.moshi.JsonAdapter;
-import com.squareup.moshi.Moshi;
-import com.squareup.moshi.Types;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,11 +23,7 @@ import java.lang.reflect.Type;
 import java.util.LinkedList;
 import java.util.List;
 
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+
 
 public class activity_menu_food extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
 

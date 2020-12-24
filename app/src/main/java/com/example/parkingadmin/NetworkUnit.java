@@ -35,6 +35,17 @@ public class NetworkUnit {
             return null;
         }
     }
+    public static String getBan() {
+        Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/ban").buildUpon()
+                .build();
+        try {
+            URL requestURL = new URL(builtURI.toString());
+
+            return callAPI(requestURL, "GET");
+        } catch (MalformedURLException e) {
+            return null;
+        }
+    }
     public static String callAPI(URL requestURL, String method) {
         HttpURLConnection urlConnection = null;
         String result = "";

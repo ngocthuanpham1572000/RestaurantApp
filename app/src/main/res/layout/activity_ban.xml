@@ -51,4 +51,12 @@
     </RelativeLayout>
 
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycviewban"
+        android:layout_width="match_parent"
+        android:layout_height="664dp"
+        android:layout_below="@+id/dashboard_fragment_cant_find_restaurant"
+        android:layout_marginTop="-50dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
 </RelativeLayout>

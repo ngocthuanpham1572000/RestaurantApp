@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingLeft="10px">
+<!--<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    android:paddingLeft="10px">-->
 
 
 <!--        android:layout_width="match_parent"-->
@@ -12,95 +12,95 @@
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent">-->
 
-    <RelativeLayout
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="10px">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="52dp">
+        android:layout_height="51dp"
+        android:alwaysDrawnWithCache="false"
+        android:orientation="horizontal"
+        android:scrollbarAlwaysDrawVerticalTrack="false">
 
-        <LinearLayout
+        <TableRow
+            android:layout_width="43dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgTrangThai"
+                android:layout_width="16dp"
+                android:layout_height="21dp"
+                android:layout_margin="15dp"
+                app:srcCompat="@drawable/green" />
+        </TableRow>
+
+        <RelativeLayout
+            android:layout_width="89dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtTenBan"
+                android:layout_width="69dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="15dp"
+                android:text="A1"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="135dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtTrangThai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="17dp"
+                android:text="Đang trống" />
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="51dp"
-            android:alwaysDrawnWithCache="false"
-            android:orientation="horizontal"
-            android:scrollbarAlwaysDrawVerticalTrack="false">
+            android:layout_height="match_parent">
 
-            <TableRow
-                android:layout_width="43dp"
-                android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="47dp"
+                android:layout_height="27dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                app:srcCompat="@drawable/nguoi" />
 
-                <ImageView
-                    android:id="@+id/imgTrangThai"
-                    android:layout_width="16dp"
-                    android:layout_height="21dp"
-                    android:layout_margin="15dp"
-                    app:srcCompat="@drawable/green" />
-            </TableRow>
+            <TextView
+                android:id="@+id/txtSoNguoi"
+                android:layout_width="42dp"
+                android:layout_height="21dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="13dp"
+                android:layout_marginBottom="14dp"
+                android:layout_toEndOf="@+id/imageView2"
+                android:text="0/12"
+                android:textAlignment="center" />
+        </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="89dp"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/txtTenBan"
-                    android:layout_width="69dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="15dp"
-                    android:text="A1"
-                    android:textSize="18sp" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="135dp"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/txtTrangThai"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="17dp"
-                    android:text="Đang trống" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="47dp"
-                    android:layout_height="27dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="12dp"
-                    app:srcCompat="@drawable/nguoi" />
-
-                <TextView
-                    android:id="@+id/txtSoNguoi"
-                    android:layout_width="42dp"
-                    android:layout_height="21dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="13dp"
-                    android:layout_marginBottom="14dp"
-                    android:layout_toEndOf="@+id/imageView2"
-                    android:text="0/12"
-                    android:textAlignment="center" />
-            </RelativeLayout>
-
-        </LinearLayout>
-    </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</RelativeLayout>
