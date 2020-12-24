@@ -5,23 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity_menu_food">
+
+
     <RelativeLayout
+        android:id="@+id/dashboard_fragment_Progressdialog"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:id="@+id/dashboard_fragment_Progressdialog"
-        android:visibility="invisible"
-        android:elevation="1dp">
+        android:elevation="1dp"
+        android:visibility="invisible">
 
         <ProgressBar
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true" />
 
     </RelativeLayout>
-
-
-
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -70,15 +69,14 @@
     </RelativeLayout>
 
 
-
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewDashboard"
+        android:id="@+id/rvDSMon"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="747dp"
         android:layout_below="@+id/RLSearch"
-        android:focusable="true"
-        android:focusableInTouchMode="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp" />
+
 
 
     </RelativeLayout>

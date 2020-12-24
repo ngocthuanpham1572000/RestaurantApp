@@ -13,7 +13,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
 
     private CardView info;
-    private CardView food;
+    private CardView monan;
     private CardView table;
     private CardView logout;
     TextView TenDangNhap;
@@ -34,12 +34,12 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
         table=findViewById(R.id.ban);
 
-        food=findViewById(R.id.food);
+        monan=findViewById(R.id.monan);
         info=findViewById(R.id.info);
         logout=findViewById(R.id.logout);
 
         table.setOnClickListener(this);
-        table.setOnClickListener(this);
+        monan.setOnClickListener(this);
 
         info.setOnClickListener(this);
         logout.setOnClickListener(this);
@@ -58,19 +58,22 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
                 startActivity(intent);
             }break;
 
-            case R.id.food:
-
-                Toast.makeText(this, "Đồ ăn", Toast.LENGTH_SHORT).show();
-                break;
-
+            case R.id.monan:
+                   {
+                       Intent intent = new Intent(this, activity_menu_food.class);
+                       startActivity(intent);
+                   }break;
             case R.id.info:
+            {
 
-                Toast.makeText(this, "Thông tin", Toast.LENGTH_SHORT).show();
-                break;
+            }break;
+//                Toast.makeText(this, "Thông tin", Toast.LENGTH_SHORT).show();
+//                break;
             case R.id.logout:
 
                 Toast.makeText(this, "Đăng xuất", Toast.LENGTH_SHORT).show();
                 break;
+
 
         }
 

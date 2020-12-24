@@ -1,106 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="10px">
+<!--<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:paddingLeft="10px">-->
 
-    <RelativeLayout
-        android:id="@+id/relativeLayoutParent"
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="57dp">-->
+
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/relativeLayoutParent"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:paddingLeft="2dp">-->
+
+
+
+<!--        </RelativeLayout>-->
+<!--    </RelativeLayout>-->
+
+<!--</androidx.cardview.widget.CardView>-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp">
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="54dp"
+android:orientation="horizontal">
+
+
+  <RelativeLayout
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1.4">
+
+    <ImageView
+        android:id="@+id/imgFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingTop="4dp"
+        android:src="@drawable/accounts"
+
+        app:srcCompat="@drawable/accounts" />
+
+
+
+</RelativeLayout>
+
+<LinearLayout
+    android:layout_width="141dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1.4"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtTenMon"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:text="Khổ qua sào cay đắng" />
+
+    <TextView
+        android:id="@+id/txtGia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="2dp">
+        android:text="100.000" />
+</LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:orientation="horizontal">
+<RelativeLayout
+    android:layout_width="12dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1.4">
 
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.4">
-
-                <ImageView
-                    android:id="@+id/imgFood"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:paddingTop="4dp"
-                    android:src="@drawable/accounts"
-
-                    />
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="59dp"
+        android:layout_height="38dp"
+        android:layout_centerInParent="true"
+        android:text="+"
+        android:textAlignment="gravity" />
+</RelativeLayout>
 
 
-            </RelativeLayout>
-
-            <LinearLayout
-                android:layout_width="141dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.4"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/txtTenMon"
-                    android:layout_width="match_parent"
-                    android:layout_height="33dp"
-                    android:text="Khổ qua sào cay đắng" />
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="100.000" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="31dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.4"
-                android:orientation="horizontal">
-
-                <RelativeLayout
-                    android:layout_width="37dp"
-                    android:layout_height="match_parent">
-
-                    <Button
-                        android:id="@+id/btnGiamSL"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:text="-" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="29dp"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/txtSL"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="0"
-                        android:textAlignment="center" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="36dp"
-                    android:layout_height="match_parent">
-
-                    <Button
-                        android:id="@+id/btnTangSL"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:text="+" />
-                </RelativeLayout>
-            </LinearLayout>
+</LinearLayout>
+    >
 
 
-        </LinearLayout>
-
-
-    </RelativeLayout>
-
-</androidx.cardview.widget.CardView>
+</RelativeLayout>
