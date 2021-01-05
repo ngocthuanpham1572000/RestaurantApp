@@ -8,10 +8,13 @@ import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
-
+import android.widget.EditText;
 
 
 import org.json.JSONArray;
@@ -32,14 +35,58 @@ public class activity_menu_food extends AppCompatActivity implements LoaderManag
     LinkedList<MonAn> MoAnList;
     RecyclerView recycler;
     monanadapter mAdapter;
+    monanadapter mTimKiem;
+    EditText edSearch;
+    LinkedList<MonAn> TimKiemList;
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_food);
+        edSearch=findViewById(R.id.editSearch);
+        recycler=findViewById(R.id.rvDSMon);
+        context=this;
+        edSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+               if(edSearch.getText()==null)
+               {
+                   recycler.setAdapter(mAdapter);
+                   recycler.setLayoutManager(new LinearLayoutManager(context));
+               }
+               else {
+                   TimKiemList=new LinkedList<MonAn>();
+                   for(int j=0;j<MoAnList.size();j++){
+                       String text=edSearch.getText().toString();
+                       if ((MoAnList.get(j).TenMon.indexOf(text))!=-1)
+                           TimKiemList.add(MoAnList.get(j));
+                   }
+                   if (TimKiemList.size()!=0)
+                   {
+                       mTimKiem = new monanadapter(context, TimKiemList);
+                       recycler.setAdapter(mTimKiem);
+                       recycler.setLayoutManager(new LinearLayoutManager(context));
+                   }
+               }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
         loaderManager = LoaderManager.getInstance(this);
-
+        if(loaderManager.getLoader(MOAN_LOADER_ID)==null)
         loaderManager.initLoader(MOAN_LOADER_ID,null,this);
+        else
+            loaderManager.restartLoader(MOAN_LOADER_ID,null,this);
     }
 
 
@@ -66,21 +113,25 @@ public class activity_menu_food extends AppCompatActivity implements LoaderManag
             MoAnList=new LinkedList<MonAn>();
             String TenMon=null;
             String Gia=null;
+            String HinhAnh=null;
+            int Id=0;
             for (int i = 0 ; i < itemsArray.length() ; i++)
             {
                 JSONObject jsonObject1 = itemsArray.getJSONObject(i);
                 try {
                     TenMon=jsonObject1.getString("TenMon");
                     Gia=jsonObject1.getString("Gia");
-                    MonAn temp=new MonAn(TenMon,Gia,null);
+                    HinhAnh=jsonObject1.getString("HinhAnh");
+                    Id=jsonObject1.getInt("id");
+                    MonAn temp=new MonAn(Id,TenMon,Gia,HinhAnh);
                     Log.d("list_t_a",temp.TenMon + " | " + temp.Gia);
                     this.MoAnList.add(temp);
                 }
                 catch (Exception e){
                     e.printStackTrace();
                 }
-                recycler=findViewById(R.id.rvDSMon);
-                Log.d("Test_array",this.MoAnList.get(0).TenMon);
+
+//                Log.d("Test_array",this.MoAnList.get(0).TenMon);
                 mAdapter=new monanadapter(this,this.MoAnList);
                 recycler.setAdapter(mAdapter);
                 recycler.setLayoutManager(new LinearLayoutManager(this));

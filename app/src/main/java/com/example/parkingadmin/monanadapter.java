@@ -40,9 +40,12 @@ public class monanadapter extends RecyclerView.Adapter<monanadapter.MonAnViewHol
         MonAn monan=this.mDataSet.get(position);
         holder.TenMon.setText(monan.TenMon);
         holder.Gia.setText(monan.Gia);
+
         Picasso.with(context)
-                .load("https://imgur.com/z5HOAvl")
+                .load("http://10.0.2.2:8000/images/"+monan.HinhAnh)
+                .placeholder(R.mipmap.ic_launcher)
                 .into(holder.HinhAnh);
+
     }
 
 

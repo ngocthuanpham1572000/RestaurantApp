@@ -30,12 +30,12 @@
                     android:orientation="horizontal">
 
                     <RelativeLayout
-                        android:layout_width="157dp"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="182dp"
                             android:orientation="vertical">
 
                             <TextView
@@ -65,16 +65,6 @@
 
                     </RelativeLayout>
 
-                    <ImageView
-                        android:id="@+id/img_AnhNV"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:src="@drawable/profile" />
-
                 </LinearLayout>
 
 
@@ -83,7 +73,7 @@
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="25dp"
                 android:layout_marginTop="-80dp"
                 android:columnCount="2"
                 android:padding="5dp">

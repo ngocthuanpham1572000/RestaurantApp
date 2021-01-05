@@ -3,6 +3,9 @@ package com.example.parkingadmin;
 import android.net.Uri;
 import android.util.Log;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,6 +30,40 @@ public class NetworkUnit {
         Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/monan").buildUpon()
 
                 .build();
+        try {
+            URL requestURL = new URL(builtURI.toString());
+
+            return callAPI(requestURL, "GET");
+        } catch (MalformedURLException e) {
+            return null;
+        }
+    }
+    public static String SetupBan(int id,int SoNguoi) {
+//        JSONObject json =new JSONObject();
+//        try {
+//            json.put("id",id);
+//            json.put("SoNguoi",SoNguoi);
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//
+//        String data=json.toString();
+        Log.d("gan", String.valueOf(id));
+        Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/setupban").buildUpon()
+                .appendQueryParameter("id", String.valueOf(id))
+                .appendQueryParameter("SoNguoi", String.valueOf(SoNguoi))
+                .build();
+        try {
+            URL requestURL = new URL(builtURI.toString());
+
+            return callAPI(requestURL, "PUT");
+        } catch (MalformedURLException e) {
+            return null;
+        }
+    }
+    public static String getDangNhap() {
+        Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/nhanvien").buildUpon().build();
+
         try {
             URL requestURL = new URL(builtURI.toString());
 

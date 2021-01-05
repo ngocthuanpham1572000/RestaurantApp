@@ -20,19 +20,24 @@ import java.util.LinkedList;
 
 public class activity_ban extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
     static final int Table_Load = 1000;
+    public  static String Setup_ban="Setupban";
     LoaderManager loaderManager;
     LinkedList<infoban> infobans;
     RecyclerView recyclerView;
     Adaptertable adaptertable;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ban);
         loaderManager = LoaderManager.getInstance(this);
-        loaderManager.initLoader(Table_Load,null,this);
+       /* loaderManager.initLoader(Table_Load,null,this);*/
+        if (loaderManager.getLoader(Table_Load) == null) {
 
+            loaderManager.initLoader(Table_Load,null,this);
+        } else {
+            loaderManager.restartLoader(Table_Load, null, this);
+        }
     }
 
     @NonNull
@@ -52,13 +57,19 @@ public class activity_ban extends AppCompatActivity implements LoaderManager.Loa
             String Tenban = null;
             int SoNguoi = 0;
             int SoGhe = 0;
+            int Id=0;
+            int TrangThai=1;
+            String vitri=null;
             for(int i = 0 ; i < banArray.length() ; i++){
                 JSONObject jsonObject1 = banArray.getJSONObject(i);
                 try{
+                    Id=jsonObject1.getInt("id");
                     Tenban = jsonObject1.getString("TenBan");
                     SoNguoi = jsonObject1.getInt("SoNguoi");
                     SoGhe = jsonObject1.getInt("SoGhe");
-                    infoban temp = new infoban(Tenban,SoNguoi,SoGhe);
+                    vitri=jsonObject1.getString("ViTri");
+                    TrangThai=jsonObject1.getInt("TrangThai");
+                    infoban temp = new infoban(Id,vitri,Tenban,SoNguoi,SoGhe,TrangThai);
                     this.infobans.add(temp);
                 }
                 catch (Exception e){

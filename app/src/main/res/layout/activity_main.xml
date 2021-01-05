@@ -37,12 +37,12 @@
             android:drawableLeft="@drawable/ic_baseline_account_circle_24"
             android:drawablePadding="4dp"
             android:hint="Tài khoản"
+
             android:inputType="textPersonName"
-            android:maxLength="10"
-
+            android:maxLength="30"
             android:padding="10dp"
+            android:text="trung0011"
             android:textSize="18sp" />
-
 
         <EditText
             android:id="@+id/editTextPassword"
@@ -58,9 +58,10 @@
             android:hint="Password"
 
             android:inputType="numberPassword"
-            android:maxLength="8"
+            android:maxLength="20"
 
             android:padding="10dp"
+            android:text="123456789"
             android:textSize="18sp" />
 
         <Button

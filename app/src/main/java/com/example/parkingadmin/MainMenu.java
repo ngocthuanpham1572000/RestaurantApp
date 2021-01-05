@@ -17,6 +17,8 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     private CardView table;
     private CardView logout;
     TextView TenDangNhap;
+    TextView TenNV;
+    Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +46,12 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         info.setOnClickListener(this);
         logout.setOnClickListener(this);
         TenDangNhap=findViewById(R.id.txtTaiKhoan);
+        TenNV=findViewById(R.id.txt_TenNV);
         Intent intent=getIntent();
-        TenDangNhap.setText(intent.getStringExtra(MainActivity.Ma));
+        bundle = intent.getBundleExtra(MainActivity.MA_DANGNHAP);
+        TenDangNhap.setText(bundle.getString("TaiKhoan"));
+        TenNV.setText(bundle.getString("TenNV"));
+
     }
 
 
