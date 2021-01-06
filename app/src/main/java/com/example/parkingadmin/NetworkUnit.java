@@ -39,16 +39,16 @@ public class NetworkUnit {
         }
     }
     public static String SetupBan(int id,int SoNguoi) {
-//        JSONObject json =new JSONObject();
-//        try {
-//            json.put("id",id);
-//            json.put("SoNguoi",SoNguoi);
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//
-//        String data=json.toString();
-        Log.d("gan", String.valueOf(id));
+        JSONObject json =new JSONObject();
+   /*     try {
+            json.put("id",id);
+            json.put("SoNguoi",SoNguoi);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        String data=json.toString();
+        Log.d("gan", data);*/
         Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/setupban").buildUpon()
                 .appendQueryParameter("id", String.valueOf(id))
                 .appendQueryParameter("SoNguoi", String.valueOf(SoNguoi))

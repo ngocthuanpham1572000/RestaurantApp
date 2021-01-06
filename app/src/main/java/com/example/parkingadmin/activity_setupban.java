@@ -31,6 +31,7 @@ public class activity_setupban extends AppCompatActivity implements LoaderManage
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setupban);
+        loaderManager = LoaderManager.getInstance(this);
         Intent intent = getIntent();
          bundle = intent.getBundleExtra(Adaptertable.Setup_ban);
          TenBan=findViewById(R.id.txtTenBan_setup);
@@ -54,7 +55,7 @@ public class activity_setupban extends AppCompatActivity implements LoaderManage
 
         try {
             JSONObject jsonObject = new JSONObject(data);
-            Log.d("Textdl",jsonObject.toString());
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -70,16 +71,19 @@ public class activity_setupban extends AppCompatActivity implements LoaderManage
         if(KiemTraSoNguoi(SoNguoi)) {
 
             bundle.putInt("SoNguoi",Integer.parseInt(SoNguoi.getText().toString()));
+          /*  loaderManager.initLoader(Setup_Ban, bundle, this);*/
+            /*SoNguoi.setText(String.valueOf(bundle.getInt("SoGhe")));*/
+          /*  TenBan.setText(bundle.getString("SoNguoi"));
+            Log.d("text123","Texy");*/
 
-
-            loaderManager.initLoader(Setup_Ban, bundle, this);
-            /*if (loaderManager.getLoader(Setup_Ban) == null) {
+            if (loaderManager.getLoader(Setup_Ban) == null) {
 
                 loaderManager.initLoader(Setup_Ban, bundle, this);
             } else {
                 loaderManager.restartLoader(Setup_Ban, bundle, this);
-            }*/
+            }
         }
+
     }
     public boolean KiemTraSoNguoi(EditText edit)
     {
@@ -97,4 +101,6 @@ public class activity_setupban extends AppCompatActivity implements LoaderManage
         return true;
 
     }
+
+
 }
