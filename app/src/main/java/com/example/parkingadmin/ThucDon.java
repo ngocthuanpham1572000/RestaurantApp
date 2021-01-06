@@ -6,6 +6,7 @@ public class ThucDon {
     public  static  final  String COL_MAMON = "MA_MON";
     public  static  final  String COL_MABAN = "MA_BAN";
     public  static  final  String COL_SOLUONG = "SO_LUONG";
+    public  static  final  String COL_DONGIA = "DON_GIA";
     public  static  final  String COL_GIATIEN = "GIA_TIEN";
     public  static  final  String COL_TRANGTHAI = "TRANG_THAI";
 
@@ -14,6 +15,7 @@ public class ThucDon {
             COL_MAMON + "Integer, " +
             COL_SOLUONG + " Integer " +
             COL_GIATIEN + " Real " +
+            COL_DONGIA + " Read" +
             COL_TRANGTHAI + "Integer )";
 
     public  static  final  String XOA_BANG = "Drop Table if Exist " + TABLE_NAME;
@@ -24,6 +26,16 @@ public class ThucDon {
     private int maban;
     private  int soluong;
     private  double giatien;
+    private double dongia;
+
+    public double getDongia() {
+        return dongia;
+    }
+
+    public void setDongia(double dongia) {
+        this.dongia = dongia;
+    }
+
     private  int trangthai;
 
     public int getId() {
@@ -74,13 +86,14 @@ public class ThucDon {
         this.trangthai = trangthai;
     }
 
-    public ThucDon(int id, int mamon, int maban, int soluong, double gia, int trangthai){
+    public ThucDon(int id, int mamon, int maban, int soluong, double gia,double tong, int trangthai){
      super();
      this.setId(id);
      this.mamon = mamon;
      this.maban = maban;
      this.soluong = soluong;
-     this.giatien = gia;
+     this.dongia=gia;
+     this.giatien = tong;
      this.trangthai = trangthai;
     }
     public ThucDon(int mamon, int maban, int soluong, double gia){
@@ -89,7 +102,8 @@ public class ThucDon {
      this.mamon = mamon;
      this.maban = maban;
      this.soluong = soluong;
-     this.giatien = gia;
+     this.dongia = gia;
+     this.giatien=gia;
      this.trangthai = 1;
     }
 }

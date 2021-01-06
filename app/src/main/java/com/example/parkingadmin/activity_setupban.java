@@ -55,6 +55,16 @@ public class activity_setupban extends AppCompatActivity implements LoaderManage
 
         try {
             JSONObject jsonObject = new JSONObject(data);
+            String ketqua=jsonObject.getString("result");
+            if(ketqua.equals("success"))
+            {
+                Intent intent =new Intent(this,activity_menu_food.class);
+               int maban;
+                maban=bundle.getInt("id");
+                intent.putExtra("id",maban);
+                startActivity(intent);
+            }
+
 
         } catch (JSONException e) {
             e.printStackTrace();

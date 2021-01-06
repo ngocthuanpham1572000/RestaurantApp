@@ -78,15 +78,19 @@ public class Adaptertable extends RecyclerView.Adapter<Adaptertable.InfoViewHold
         }
         public void SetupBan(infoban item)
         {
+            if(item.getTrangThai()==1) {
+                Intent intent = new Intent(context, activity_setupban.class);
+                Bundle ban = new Bundle();
+                ban.putInt("id", item.getId());
+                ban.putString("ViTri", item.getViTri());
+                ban.putInt("SoGhe", item.getSoghe());
+                ban.putString("TenBan", item.getTenban());
+                intent.putExtra(Setup_ban, ban);
+                context.startActivity(intent);
+            }
+            if(item.getTrangThai()==2){
 
-            Intent intent=new Intent(context,activity_setupban.class);
-            Bundle ban=new Bundle();
-            ban.putInt("id",item.getId());
-            ban.putString("ViTri",item.getViTri());
-            ban.putInt("SoGhe",item.getSoghe());
-            ban.putString("TenBan",item.getTenban());
-            intent.putExtra(Setup_ban,ban);
-            context.startActivity(intent);
+            }
 
         }
     }
