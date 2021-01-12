@@ -8,9 +8,14 @@ import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextSwitcher;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,11 +30,16 @@ public class activity_ban extends AppCompatActivity implements LoaderManager.Loa
     LinkedList<infoban> infobans;
     RecyclerView recyclerView;
     Adaptertable adaptertable;
+    EditText edSearch;
+    LinkedList<infoban> TimKiemList;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ban);
+        edSearch=findViewById(R.id.edSearch_ban);
+        context=this;
         loaderManager = LoaderManager.getInstance(this);
        /* loaderManager.initLoader(Table_Load,null,this);*/
         if (loaderManager.getLoader(Table_Load) == null) {
@@ -38,6 +48,41 @@ public class activity_ban extends AppCompatActivity implements LoaderManager.Loa
         } else {
             loaderManager.restartLoader(Table_Load, null, this);
         }
+        edSearch.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(edSearch.getText()==null)
+                {
+                    recyclerView.setAdapter(adaptertable);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(context));
+                }
+                else {
+                    TimKiemList=new LinkedList<infoban>();
+                    for(int j=0;j<infobans.size();j++){
+                        String text=edSearch.getText().toString();
+                        if ((infobans.get(j).getTenban().indexOf(text))!=-1)
+                            TimKiemList.add(infobans.get(j));
+                    }
+                    if (TimKiemList.size()!=0)
+                    {
+                        adaptertable = new Adaptertable(context, TimKiemList);
+                        recyclerView.setAdapter(adaptertable);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 
     @NonNull

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp">
+    <LinearLayout
+        android:layout_width="385dp"
+        android:layout_height="32dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="91dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtTenMon_tt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:text="@string/t_n_m_n" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="98dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtSoLuong_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/s_l_ng" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="103dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtDonGia_tt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/n_gi" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="102dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtThanhTien_tt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/th_nh_ti_n" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

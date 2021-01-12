@@ -61,7 +61,9 @@ public class activity_setupban extends AppCompatActivity implements LoaderManage
                 Intent intent =new Intent(this,activity_menu_food.class);
                int maban;
                 maban=bundle.getInt("id");
-                intent.putExtra("id",maban);
+                /*intent.putExtra("id",maban);*/
+                activity_menu_food.Maban=maban;
+                activity_menu_food.TenBan=bundle.getString("TenBan");
                 startActivity(intent);
             }
 
@@ -105,7 +107,7 @@ public class activity_setupban extends AppCompatActivity implements LoaderManage
         int i=Integer.parseInt(edit.getText().toString());
         if(i>Integer.parseInt(SoGhe.getText().toString())||i<1)
         {
-            Loi.setText("Số ghế không phù hợp");
+            Loi.setText("Số người không phù hợp");
             return false;
         }
         return true;

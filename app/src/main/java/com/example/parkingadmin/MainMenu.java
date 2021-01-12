@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static com.example.parkingadmin.MainActivity.MA_DANGNHAP;
+
 public class MainMenu extends AppCompatActivity implements View.OnClickListener {
 
 
@@ -19,6 +21,9 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     TextView TenDangNhap;
     TextView TenNV;
     Bundle bundle;
+    public static String SEND_DATA="send";
+  public static String TenNhanVien="";
+    public static  int Ma_NV=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +56,8 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         bundle = intent.getBundleExtra(MainActivity.MA_DANGNHAP);
         TenDangNhap.setText(bundle.getString("TaiKhoan"));
         TenNV.setText(bundle.getString("TenNV"));
+        Ma_NV=bundle.getInt("Id");
+   TenNhanVien=bundle.getString("TenNV");
 
     }
 
@@ -71,14 +78,30 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
                    }break;
             case R.id.info:
             {
+                String taikhoan=bundle.getString("TaiKhoan");
+                String ten=bundle.getString("TenNV");
+                String ngaysinh=bundle.getString("NgaySinh");
+                String gioitinh=bundle.getString("GioiTinh");
+                String matkhau=bundle.getString("MatKhau");
+                int id=bundle.getInt("Id");
 
+                Intent intent=new Intent(this,activity_info.class);
+                Bundle bund=new Bundle();
+                bund.putString("TaiKhoan",taikhoan);
+                bund.putString("TenNV",ten);
+                bund.putString("NgaySinh",ngaysinh);
+                bund.putString("GioiTinh",gioitinh);
+                bund.putString("MatKhau",matkhau);
+                bund.putInt("id",id);
+                intent.putExtra(MA_DANGNHAP,bund);
+                startActivity(intent);
             }break;
 //                Toast.makeText(this, "Thông tin", Toast.LENGTH_SHORT).show();
 //                break;
             case R.id.logout:
 
-                Toast.makeText(this, "Đăng xuất", Toast.LENGTH_SHORT).show();
-                break;
+                Intent intent=new Intent(this,MainActivity.class);
+                startActivity(intent);
 
 
         }

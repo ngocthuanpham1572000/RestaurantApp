@@ -19,6 +19,7 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
 
     public static String MA_DANGNHAP="Ma_dangnhap";
+
     EditText TaiKhoan;
     EditText MatKhau;
     LoaderManager loaderManager;
@@ -59,12 +60,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 JSONObject jsonObject1=  jsonArray.getJSONObject(i);
 
 
-                if(TaiKhoan.getText().toString().equals(jsonObject1.getString("TaiKhoan"))&&BamMatKhau.equals(tt))
+                if(TaiKhoan.getText().toString().equals(jsonObject1.getString("TaiKhoan"))&&BamMatKhau.equals(jsonObject1.getString("MatKhau")))
                 {
                     Intent intent=new Intent(this,MainMenu.class);
                     Bundle bundle=new Bundle();
                     bundle.putString("TaiKhoan",jsonObject1.getString("TaiKhoan"));
                     bundle.putString("TenNV",jsonObject1.getString("TenNV"));
+                    bundle.putString("NgaySinh",jsonObject1.getString("NgaySinh"));
+                    bundle.putString("GioiTinh",jsonObject1.getString("GioiTinh"));
+                    bundle.putString("MatKhau",jsonObject1.getString("MatKhau"));
                     bundle.putInt("Id",jsonObject1.getInt("id"));
                     intent.putExtra(MA_DANGNHAP,bundle);
                     startActivity(intent);

@@ -3,21 +3,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.parkingadmin">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/title_activity_splash_screen"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity_thanhtoan" android:label="Thanh toán" android:parentActivityName=".activity_mondachon"/>
-        <activity android:name=".activity_setupban" android:label="Lập bàn" android:parentActivityName=".activity_ban"/>
-        <activity android:name=".activity_mondachon" android:label="Các món đã chọn" android:parentActivityName=".activity_menu_food" />
-        <activity android:name=".activity_ban"  android:label="Danh sách bàn" android:parentActivityName=".MainMenu"/>
-        <activity android:name=".activity_menu_food" android:label="Danh sách món" android:parentActivityName=".activity_ban" />
-        <activity android:name=".MainMenu" android:label="Menu" />
-        <activity android:name=".MainActivity" android:label="Đăng nhập">
+        <activity android:name=".activity_info"></activity>
+        <activity android:name=".activity_changepass" />
+        <activity
+            android:name=".activity_thanhtoan"
+            android:label="Thanh toán"
+            android:parentActivityName=".activity_mondachon" />
+        <activity
+            android:name=".activity_setupban"
+            android:label="Lập bàn"
+            android:parentActivityName=".activity_ban" />
+        <activity
+            android:name=".activity_mondachon"
+            android:label="Các món đã chọn"
+            android:parentActivityName=".activity_menu_food" />
+        <activity
+            android:name=".activity_ban"
+            android:label="Danh sách bàn"
+            android:parentActivityName=".MainMenu" />
+        <activity
+            android:name=".activity_menu_food"
+            android:label="Danh sách món"
+            android:parentActivityName=".activity_ban" />
+        <activity
+            android:name=".MainMenu"
+            android:label="Menu" />
+        <activity
+            android:name=".MainActivity"
+            android:label="Đăng nhập">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +48,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

@@ -114,7 +114,7 @@
                     android:layout_height="match_parent"
                     android:background="#ED0E0E"
                     android:text="0đ"
-                    android:onClick="ClickThemmon"
+                    android:onClick="ClickMondachon"
                     android:textColor="#F3EDED"
                     android:textSize="30sp" />
             </RelativeLayout>

@@ -39,19 +39,36 @@ public class NetworkUnit {
         }
     }
     public static String SetupBan(int id,int SoNguoi) {
-        JSONObject json =new JSONObject();
-   /*     try {
-            json.put("id",id);
-            json.put("SoNguoi",SoNguoi);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
-        String data=json.toString();
-        Log.d("gan", data);*/
+
         Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/setupban").buildUpon()
                 .appendQueryParameter("id", String.valueOf(id))
                 .appendQueryParameter("SoNguoi", String.valueOf(SoNguoi))
+                .build();
+        try {
+            URL requestURL = new URL(builtURI.toString());
+
+            return callAPI(requestURL, "PUT");
+        } catch (MalformedURLException e) {
+            return null;
+        }
+    }
+    public static String DoiMK(int id, String mk){
+        Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/nhanvien").buildUpon()
+                .appendQueryParameter("id", String.valueOf(id))
+                .appendQueryParameter("MatKhau",mk)
+                .build();
+        try {
+            URL requestURL = new URL(builtURI.toString());
+
+            return callAPI(requestURL, "PUT");
+        } catch (MalformedURLException e) {
+            return null;
+        }
+    }
+    public static String CloseBan(int id){
+        Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/dongban").buildUpon()
+                .appendQueryParameter("id",String.valueOf(id))
                 .build();
         try {
             URL requestURL = new URL(builtURI.toString());
@@ -83,6 +100,39 @@ public class NetworkUnit {
             return null;
         }
     }
+    public static String TaoHoaDon(HoaDon hd) {
+        Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/hoadon").buildUpon()
+                .appendQueryParameter("TongTien",Double.toString(hd.getTongtien()))
+                .appendQueryParameter("ThoiGianLap",hd.getThoigianlap())
+                .appendQueryParameter("MaBan",Integer.toString(hd.getMaban()))
+                .appendQueryParameter("MaNV",Integer.toString(hd.getManv()))
+                .appendQueryParameter("TrangThai",Integer.toString(hd.getTrangThai()))
+                .build();
+        try {
+            URL requestURL = new URL(builtURI.toString());
+
+            return callAPI(requestURL, "POST");
+        } catch (MalformedURLException e) {
+            return null;
+        }
+    }
+    public static String TaoChiTietHD(ThucDon td,String thoigian) {
+        Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/chitiethoadon").buildUpon()
+                .appendQueryParameter("SoLuong",Integer.toString(td.getSoluong()))
+                .appendQueryParameter("Gia",Double.toString(td.getGiatien()))
+                .appendQueryParameter("MaBan",Integer.toString(td.getMaban()))
+                .appendQueryParameter("MaMon",Integer.toString(td.getMamon()))
+                .appendQueryParameter("ThoiGian",thoigian)
+                .build();
+        try {
+            URL requestURL = new URL(builtURI.toString());
+
+            return callAPI(requestURL, "POST");
+        } catch (MalformedURLException e) {
+            return null;
+        }
+    }
+
     public static String callAPI(URL requestURL, String method) {
         HttpURLConnection urlConnection = null;
         String result = "";

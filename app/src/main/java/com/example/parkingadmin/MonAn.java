@@ -3,7 +3,7 @@ package com.example.parkingadmin;
 public class MonAn {
 
 
-    public MonAn(int id, String Ten,String gia,String Hinh)
+    public MonAn(int id, String Ten,double gia,String Hinh)
     {
         Id=id;
         TenMon=Ten;
@@ -19,7 +19,7 @@ public class MonAn {
         this.HinhAnh=monAn.HinhAnh;
     }
     public String TenMon;
-    public String Gia;
+    public double Gia;
 
   public String HinhAnh;
   public int Id;

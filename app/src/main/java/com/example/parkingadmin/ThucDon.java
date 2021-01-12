@@ -4,25 +4,38 @@ public class ThucDon {
     public  static  final  String  TABLE_NAME = "THUC_DON";
     public  static  final  String COL_ID = "ID";
     public  static  final  String COL_MAMON = "MA_MON";
+    public static final String COL_TENMON="TEN_MON";
     public  static  final  String COL_MABAN = "MA_BAN";
     public  static  final  String COL_SOLUONG = "SO_LUONG";
     public  static  final  String COL_DONGIA = "DON_GIA";
     public  static  final  String COL_GIATIEN = "GIA_TIEN";
     public  static  final  String COL_TRANGTHAI = "TRANG_THAI";
 
-    public  static  final  String CREATE_TABLE = "Create Table "+ TABLE_NAME + " ( " +
-            COL_ID + " Integer primary key autoincrement," +
-            COL_MAMON + "Integer, " +
-            COL_SOLUONG + " Integer " +
-            COL_GIATIEN + " Real " +
-            COL_DONGIA + " Read" +
-            COL_TRANGTHAI + "Integer )";
+    public  static  final  String CREATE_TABLE = "CREATE TABLE "+ TABLE_NAME + " ( " +
+            COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COL_MAMON + " INTEGER, " +
+            COL_TENMON + " TEXT, "+
+            COL_MABAN + " INTEGER, " +
+            COL_SOLUONG + " INTEGER, " +
+            COL_DONGIA + " REAL, " +
+            COL_GIATIEN + " REAL, " +
+            COL_TRANGTHAI + " INTEGER )";
 
-    public  static  final  String XOA_BANG = "Drop Table if Exist " + TABLE_NAME;
+    public  static  final  String XOA_BANG = "DROP TABLE IF EXIST " + TABLE_NAME;
 
 
     private int id;
     private  int mamon;
+
+    public String getTenmon() {
+        return tenmon;
+    }
+
+    public void setTenmon(String tenmon) {
+        this.tenmon = tenmon;
+    }
+
+    private String tenmon;
     private int maban;
     private  int soluong;
     private  double giatien;
@@ -86,20 +99,22 @@ public class ThucDon {
         this.trangthai = trangthai;
     }
 
-    public ThucDon(int id, int mamon, int maban, int soluong, double gia,double tong, int trangthai){
+    public ThucDon(int id, int mamon,String tenmon, int maban, int soluong, double gia,double tong, int trangthai){
      super();
      this.setId(id);
      this.mamon = mamon;
+     this.tenmon=tenmon;
      this.maban = maban;
      this.soluong = soluong;
      this.dongia=gia;
      this.giatien = tong;
      this.trangthai = trangthai;
     }
-    public ThucDon(int mamon, int maban, int soluong, double gia){
+    public ThucDon(int mamon,String tenmon, int maban, int soluong, double gia){
      super();
      this.setId(0);
      this.mamon = mamon;
+     this.tenmon=tenmon;
      this.maban = maban;
      this.soluong = soluong;
      this.dongia = gia;

@@ -7,10 +7,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.LinkedList;
 
@@ -43,6 +46,17 @@ public class Adaptertable extends RecyclerView.Adapter<Adaptertable.InfoViewHold
         int songuoi = ban.getSonguoi();
         String nguoi_ghe = songuoi+"/"+soghe;
         holder.txt_songuoi_ghe.setText(nguoi_ghe);
+        if(ban.getTrangThai()==2)
+        {
+            holder.txtTrangThai.setText("Đang phục vụ");
+            Picasso.with(context).load(R.drawable.red).into(holder.imgTrangThai);
+        }
+        else
+        {
+            holder.txtTrangThai.setText("Đang trống");
+            Picasso.with(context).load(R.drawable.green).into(holder.imgTrangThai);
+        }
+        
     }
 
     @Override
@@ -54,12 +68,16 @@ public class Adaptertable extends RecyclerView.Adapter<Adaptertable.InfoViewHold
         final Adaptertable mAdapTer;
         final TextView txt_tenban;
         final TextView txt_songuoi_ghe;
+        final TextView txtTrangThai;
+        final ImageView imgTrangThai;
         public InfoViewHolder(@NonNull View itemView, Adaptertable mAdapter) {
 
             super(itemView);
             this.mAdapTer = mAdapter;
             this.txt_tenban = itemView.findViewById(R.id.txtTenBan);
             this.txt_songuoi_ghe = itemView.findViewById(R.id.txtSoNguoi);
+            this.txtTrangThai=itemView.findViewById(R.id.txtTrangThai);
+            this.imgTrangThai=itemView.findViewById(R.id.imgTrangThai);
             itemView.setOnClickListener(this);
         }
 
@@ -72,9 +90,7 @@ public class Adaptertable extends RecyclerView.Adapter<Adaptertable.InfoViewHold
             infoban item=mdataset.get(positison);
             Log.d("testitem", String.valueOf(item.getTrangThai()));
             SetupBan(item);
-            if(item.getTrangThai()==1){
 
-            }
         }
         public void SetupBan(infoban item)
         {
@@ -89,7 +105,10 @@ public class Adaptertable extends RecyclerView.Adapter<Adaptertable.InfoViewHold
                 context.startActivity(intent);
             }
             if(item.getTrangThai()==2){
-
+                Intent intent=new Intent(context,activity_mondachon.class);
+                activity_menu_food.Maban=item.getId();
+                activity_menu_food.TenBan=item.getTenban();
+                context.startActivity(intent);
             }
 
         }
