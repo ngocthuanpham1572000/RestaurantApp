@@ -1,4 +1,4 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,10 +12,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.parkingadmin.function.MD5;
+import com.example.parkingadmin.R;
+import com.example.parkingadmin.asynctaskloader.MatKhauLoader;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static com.example.parkingadmin.MainActivity.MA_DANGNHAP;
+import static com.example.parkingadmin.activity.MainActivity.MA_DANGNHAP;
 
 public class activity_changepass extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
 
@@ -47,7 +51,7 @@ public class activity_changepass extends AppCompatActivity implements LoaderMana
         String mkxacnhan=MKXacNhan.getText().toString();
         String mkcu=MKCu.getText().toString();
         if(KTMKCu(mkcu)==true && KTMKMoi(mkmoi,mkxacnhan)==true){
-            String Bammk=MD5.md5(mkmoi);
+            String Bammk= MD5.md5(mkmoi);
             bundle.putString("MatKhau",Bammk);
             bundle.putInt("id",Id);
             if (loaderManager.getLoader(DOI_MK) == null) {
@@ -121,7 +125,7 @@ public class activity_changepass extends AppCompatActivity implements LoaderMana
             if(ketqua.equals("success"))
             {
 
-                Intent intent=new Intent(this,MainActivity.class);
+                Intent intent=new Intent(this, MainActivity.class);
                 startActivity(intent);
                 Toast.makeText(this,"OK!",Toast.LENGTH_SHORT).show();
             }

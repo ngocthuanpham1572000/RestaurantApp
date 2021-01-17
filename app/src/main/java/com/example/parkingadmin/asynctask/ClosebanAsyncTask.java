@@ -1,13 +1,14 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.asynctask;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 
+import com.example.parkingadmin.function.NetworkUnit;
+import com.example.parkingadmin.activity.activity_ban;
+
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.lang.ref.WeakReference;
 
 public class ClosebanAsyncTask extends AsyncTask<Integer,Void,String> {
     private Context context;
@@ -22,7 +23,7 @@ public class ClosebanAsyncTask extends AsyncTask<Integer,Void,String> {
             String ketqua=jsonObject.getString("result");
             if(ketqua.equals("success"))
             {
-                Intent intent =new Intent(context,activity_ban.class);
+                Intent intent =new Intent(context, activity_ban.class);
                 context.startActivity(intent);
             }
 

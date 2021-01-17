@@ -1,9 +1,14 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.asynctask;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
+import android.widget.Toast;
+
+import com.example.parkingadmin.model.HoaDon;
+import com.example.parkingadmin.function.NetworkUnit;
+import com.example.parkingadmin.model.ThucDon;
+import com.example.parkingadmin.function.ThucDonDBHelper;
+import com.example.parkingadmin.activity.activity_menu_food;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,13 +30,14 @@ public class TaoHDAsynctask extends AsyncTask<HoaDon,Void,String> {
         super.onPostExecute(s);
         try {
             JSONObject jsonObject = new JSONObject(s);
-            String kq=jsonObject.getString("message");
-            if(kq.equals("tao hoa don thanh cong"))
+            int id=jsonObject.getInt("id");
+            if(id!=0)
             {
                 thucdon=td.DSgiohangtheoma(activity_menu_food.Maban);
                 for(int i=0;i<thucdon.size();i++) {
-                    new TaoChitietHDAsyncTask(Thoigian).execute(thucdon.get(i));
+                    new TaoChitietHDAsyncTask(id).execute(thucdon.get(i));
                 }
+                Toast.makeText(context,"Thanh toán thành công",Toast.LENGTH_LONG).show();
                 int xoa=td.xoaDSsaoThanhToan(activity_menu_food.Maban);
             }
         } catch (JSONException e) {

@@ -1,4 +1,4 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import static com.example.parkingadmin.MainActivity.MA_DANGNHAP;
+import com.example.parkingadmin.R;
+
+import static com.example.parkingadmin.activity.MainActivity.MA_DANGNHAP;
 
 public class activity_info extends AppCompatActivity {
 
@@ -38,7 +40,7 @@ public class activity_info extends AppCompatActivity {
 
     public void doiMatKhau(View view) {
         String mk=bundle.getString("MatKhau");
-        Intent intent=new Intent(this,activity_changepass.class);
+        Intent intent=new Intent(this, activity_changepass.class);
         Bundle bund=new Bundle();
         bund.putString("MatKhau",mk);
         bund.putInt("id",id);

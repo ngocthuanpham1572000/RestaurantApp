@@ -1,25 +1,21 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.activity;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.AsyncTaskLoader;
-import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import com.example.parkingadmin.R;
+import com.example.parkingadmin.model.ThucDon;
+import com.example.parkingadmin.function.ThucDonDBHelper;
+import com.example.parkingadmin.adapter.MondachonAdapter;
+import com.example.parkingadmin.asynctask.ClosebanAsyncTask;
+
 import java.util.LinkedList;
 
 
@@ -40,7 +36,7 @@ public class activity_mondachon extends AppCompatActivity   {
         rvMDC.setAdapter(mAdapter);
         rvMDC.setLayoutManager(new LinearLayoutManager(this));
         double Tong=td.TongTien(activity_menu_food.Maban);
-        txtTong.setText("Tổng: "+Double.toString(Tong));
+        txtTong.setText("Tổng: "+Double.toString(Tong)+"00 đ");
     }
 
 

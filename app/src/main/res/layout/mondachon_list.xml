@@ -73,7 +73,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:text="+" />
+                        android:backgroundTint="#3DDF46"
+                        android:text="+"
+                        android:textColor="#FFFFFF" />
 
                 </RelativeLayout>
 
@@ -101,7 +103,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:text="-" />
+                        android:backgroundTint="#4F8F7070"
+                        android:text="-"
+                        android:textColor="#F44336" />
 
 
                 </RelativeLayout>

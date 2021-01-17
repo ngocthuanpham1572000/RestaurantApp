@@ -1,4 +1,4 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.parkingadmin.R;
+import com.example.parkingadmin.model.ThucDon;
+import com.example.parkingadmin.function.ThucDonDBHelper;
+import com.example.parkingadmin.activity.activity_menu_food;
 
 import java.util.LinkedList;
 
@@ -35,8 +40,8 @@ public class ThanhToanAdapter extends RecyclerView.Adapter<ThanhToanAdapter.Than
         ThucDon thucDon=thucdon.get(position);
         holder.TenMon.setText(thucDon.getTenmon());
         holder.SoLuong.setText(Integer.toString(thucDon.getSoluong()));
-        holder.DonGia.setText(Double.toString(thucDon.getDongia()));
-        holder.ThanhTien.setText(Double.toString(thucDon.getGiatien()));
+        holder.DonGia.setText(Double.toString(thucDon.getDongia())+"00 đ");
+        holder.ThanhTien.setText(Double.toString(thucDon.getGiatien())+"00 đ");
     }
 
     @Override

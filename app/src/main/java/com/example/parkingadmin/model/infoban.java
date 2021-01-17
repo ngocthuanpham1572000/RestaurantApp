@@ -1,4 +1,4 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.model;
 
 public class infoban {
     private int Id;

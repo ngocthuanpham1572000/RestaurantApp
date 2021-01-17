@@ -1,4 +1,4 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +8,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.parkingadmin.model.HoaDon;
+import com.example.parkingadmin.R;
+import com.example.parkingadmin.function.ThucDonDBHelper;
+import com.example.parkingadmin.adapter.ThanhToanAdapter;
+import com.example.parkingadmin.asynctask.ClosebanAsyncTask;
+import com.example.parkingadmin.asynctask.TaoHDAsynctask;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -30,9 +37,9 @@ public class activity_thanhtoan extends AppCompatActivity {
         rvThanhToan.setLayoutManager(new LinearLayoutManager(this));
         txtTong=findViewById(R.id.txtTongCong_tt);
         double Tong=td.TongTien(activity_menu_food.Maban);
-        txtTong.setText("Tổng: "+Double.toString(Tong));
+        txtTong.setText("Tổng: "+Double.toString(Tong)+"00 đ");
         txtNhanVien=findViewById(R.id.txtNhanVien_tt);
-      txtNhanVien.setText("Nhân viên: "+MainMenu.TenNhanVien);
+      txtNhanVien.setText("Nhân viên: "+ MainActivity.TenNhanVien);
         txtTenBan=findViewById(R.id.txtBan_tt);
         txtTenBan.setText("Tên bàn: "+activity_menu_food.TenBan);
     }
@@ -45,7 +52,7 @@ public class activity_thanhtoan extends AppCompatActivity {
         String s = dateFormatter.format(today);;
 
         Log.d("hd",s);
-        HoaDon hd=new HoaDon(activity_menu_food.Maban,MainMenu.Ma_NV,tong,s);
+        HoaDon hd=new HoaDon(activity_menu_food.Maban,MainActivity.Ma_NV,tong,s);
         new TaoHDAsynctask(this).execute(hd);
         new ClosebanAsyncTask(this).execute(activity_menu_food.Maban);
     }

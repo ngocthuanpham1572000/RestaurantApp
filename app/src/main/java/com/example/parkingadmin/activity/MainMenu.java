@@ -1,4 +1,4 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -7,9 +7,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import static com.example.parkingadmin.MainActivity.MA_DANGNHAP;
+import com.example.parkingadmin.R;
+import com.example.parkingadmin.activity.MainActivity;
+import com.example.parkingadmin.activity.activity_ban;
+import com.example.parkingadmin.activity.activity_info;
+import com.example.parkingadmin.activity.activity_menu_food;
+
+import static com.example.parkingadmin.activity.MainActivity.MA_DANGNHAP;
 
 public class MainMenu extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,8 +27,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     TextView TenNV;
     Bundle bundle;
     public static String SEND_DATA="send";
-  public static String TenNhanVien="";
-    public static  int Ma_NV=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,11 +58,10 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         TenNV=findViewById(R.id.txt_TenNV);
         Intent intent=getIntent();
         bundle = intent.getBundleExtra(MainActivity.MA_DANGNHAP);
-        TenDangNhap.setText(bundle.getString("TaiKhoan"));
-        TenNV.setText(bundle.getString("TenNV"));
-        Ma_NV=bundle.getInt("Id");
-   TenNhanVien=bundle.getString("TenNV");
 
+
+        TenDangNhap.setText(MainActivity.TaiKhoanNV);
+        TenNV.setText(MainActivity.TenNhanVien);
     }
 
 
@@ -85,7 +88,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
                 String matkhau=bundle.getString("MatKhau");
                 int id=bundle.getInt("Id");
 
-                Intent intent=new Intent(this,activity_info.class);
+                Intent intent=new Intent(this, activity_info.class);
                 Bundle bund=new Bundle();
                 bund.putString("TaiKhoan",taikhoan);
                 bund.putString("TenNV",ten);

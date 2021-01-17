@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_menu_food">
+    tools:context=".activity.activity_menu_food">
 
 
     <RelativeLayout
@@ -105,16 +105,17 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="249dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent">
 
                 <Button
                     android:id="@+id/btnTongTien"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#ED0E0E"
-                    android:text="0đ"
+                    android:background="#158EC5"
+                    android:backgroundTint="#EF0000"
                     android:onClick="ClickMondachon"
+                    android:text="0 đ"
                     android:textColor="#F3EDED"
                     android:textSize="30sp" />
             </RelativeLayout>

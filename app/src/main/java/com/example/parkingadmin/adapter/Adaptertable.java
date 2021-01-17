@@ -1,4 +1,4 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.parkingadmin.R;
+import com.example.parkingadmin.activity.activity_menu_food;
+import com.example.parkingadmin.activity.activity_mondachon;
+import com.example.parkingadmin.activity.activity_setupban;
+import com.example.parkingadmin.model.infoban;
 import com.squareup.picasso.Picasso;
 
 import java.util.LinkedList;
@@ -105,7 +110,7 @@ public class Adaptertable extends RecyclerView.Adapter<Adaptertable.InfoViewHold
                 context.startActivity(intent);
             }
             if(item.getTrangThai()==2){
-                Intent intent=new Intent(context,activity_mondachon.class);
+                Intent intent=new Intent(context, activity_mondachon.class);
                 activity_menu_food.Maban=item.getId();
                 activity_menu_food.TenBan=item.getTenban();
                 context.startActivity(intent);

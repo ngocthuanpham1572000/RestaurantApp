@@ -1,8 +1,6 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +11,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.parkingadmin.model.MonAn;
+import com.example.parkingadmin.R;
+import com.example.parkingadmin.model.ThucDon;
+import com.example.parkingadmin.function.ThucDonDBHelper;
+import com.example.parkingadmin.activity.activity_menu_food;
 import com.squareup.picasso.Picasso;
 
 import java.lang.ref.WeakReference;
@@ -46,7 +49,7 @@ public class monanadapter extends RecyclerView.Adapter<monanadapter.MonAnViewHol
     public void onBindViewHolder(@NonNull MonAnViewHolder holder, int position) {
         MonAn monan=this.mDataSet.get(position);
         holder.TenMon.setText(monan.TenMon);
-        holder.Gia.setText(Double.toString(monan.Gia));
+        holder.Gia.setText(Double.toString(monan.Gia)+"00 đ");
 
         Picasso.with(context)
                 .load("http://10.0.2.2:8000/images/"+monan.HinhAnh)
@@ -82,13 +85,13 @@ public class monanadapter extends RecyclerView.Adapter<monanadapter.MonAnViewHol
                 public void onClick(View view) {
                     int positison = getLayoutPosition();
                     MonAn monAn= mDataSet.get(positison);
-                    ThucDon thucDon=new ThucDon(monAn.Id,monAn.TenMon,activity_menu_food.Maban,1,monAn.Gia);
+                    ThucDon thucDon=new ThucDon(monAn.Id,monAn.TenMon, activity_menu_food.Maban,1,monAn.Gia);
                     long ThemMon=  thucdon.ThemMon(thucDon);
                     if (ThemMon>0)
                     {
                         btnAdd.setText("✓");
                         double tong =thucdon.TongTien(activity_menu_food.Maban);
-                        btnTong.get().setText(Double.toString(tong));
+                        btnTong.get().setText(Double.toString(tong)+"00 đ");
                     }
                 }
             });

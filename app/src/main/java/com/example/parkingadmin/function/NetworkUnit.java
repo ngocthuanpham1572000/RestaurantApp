@@ -1,10 +1,10 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.function;
 
 import android.net.Uri;
 import android.util.Log;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.example.parkingadmin.model.HoaDon;
+import com.example.parkingadmin.model.ThucDon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,10 +24,10 @@ public class NetworkUnit {
 //    private static final String MAX_RESULTS = "maxResults";
 //
 //    private  static final String PRINT_TYPE = "printType";
-
+    private  static final  String chuoi="http://10.0.2.2:8000/api/";
 
     public static String getMoAn() {
-        Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/monan").buildUpon()
+        Uri builtURI = Uri.parse(chuoi+"monan").buildUpon()
 
                 .build();
         try {
@@ -41,7 +41,7 @@ public class NetworkUnit {
     public static String SetupBan(int id,int SoNguoi) {
 
 
-        Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/setupban").buildUpon()
+        Uri builtURI = Uri.parse(chuoi+"setupban").buildUpon()
                 .appendQueryParameter("id", String.valueOf(id))
                 .appendQueryParameter("SoNguoi", String.valueOf(SoNguoi))
                 .build();
@@ -54,7 +54,7 @@ public class NetworkUnit {
         }
     }
     public static String DoiMK(int id, String mk){
-        Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/nhanvien").buildUpon()
+        Uri builtURI = Uri.parse(chuoi+"nhanvien").buildUpon()
                 .appendQueryParameter("id", String.valueOf(id))
                 .appendQueryParameter("MatKhau",mk)
                 .build();
@@ -67,7 +67,7 @@ public class NetworkUnit {
         }
     }
     public static String CloseBan(int id){
-        Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/dongban").buildUpon()
+        Uri builtURI = Uri.parse(chuoi+"dongban").buildUpon()
                 .appendQueryParameter("id",String.valueOf(id))
                 .build();
         try {
@@ -79,7 +79,7 @@ public class NetworkUnit {
         }
     }
     public static String getDangNhap() {
-        Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/nhanvien").buildUpon().build();
+        Uri builtURI = Uri.parse(chuoi+"nhanvien").buildUpon().build();
 
         try {
             URL requestURL = new URL(builtURI.toString());
@@ -90,7 +90,7 @@ public class NetworkUnit {
         }
     }
     public static String getBan() {
-        Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/ban").buildUpon()
+        Uri builtURI = Uri.parse(chuoi+"ban").buildUpon()
                 .build();
         try {
             URL requestURL = new URL(builtURI.toString());
@@ -101,7 +101,7 @@ public class NetworkUnit {
         }
     }
     public static String TaoHoaDon(HoaDon hd) {
-        Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/hoadon").buildUpon()
+        Uri builtURI = Uri.parse(chuoi+"hoadon").buildUpon()
                 .appendQueryParameter("TongTien",Double.toString(hd.getTongtien()))
                 .appendQueryParameter("ThoiGianLap",hd.getThoigianlap())
                 .appendQueryParameter("MaBan",Integer.toString(hd.getMaban()))
@@ -116,13 +116,13 @@ public class NetworkUnit {
             return null;
         }
     }
-    public static String TaoChiTietHD(ThucDon td,String thoigian) {
-        Uri builtURI = Uri.parse("http://10.0.2.2:8000/api/chitiethoadon").buildUpon()
+    public static String TaoChiTietHD(ThucDon td, int id) {
+        Uri builtURI = Uri.parse(chuoi+"chitiethoadon").buildUpon()
                 .appendQueryParameter("SoLuong",Integer.toString(td.getSoluong()))
                 .appendQueryParameter("Gia",Double.toString(td.getGiatien()))
-                .appendQueryParameter("MaBan",Integer.toString(td.getMaban()))
+                .appendQueryParameter("MaHD",Integer.toString(id))
                 .appendQueryParameter("MaMon",Integer.toString(td.getMamon()))
-                .appendQueryParameter("ThoiGian",thoigian)
+                .appendQueryParameter("DonGia",Double.toString(td.getDongia()))
                 .build();
         try {
             URL requestURL = new URL(builtURI.toString());

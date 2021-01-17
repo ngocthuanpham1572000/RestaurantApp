@@ -1,4 +1,4 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.function;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

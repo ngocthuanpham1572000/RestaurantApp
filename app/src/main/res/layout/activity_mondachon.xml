@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_mondachon">
+    tools:context=".activity.activity_mondachon">
 
     <Button
         android:id="@+id/btnThanhToan"
@@ -15,6 +15,7 @@
         android:backgroundTint="#0C2DE4"
         android:onClick="ClickThanhToan"
         android:text="Thanh toán"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,9 +61,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:backgroundTint="#FF0606"
+        android:backgroundTint="#4CAF50"
         android:onClick="ClickGoiThem"
         android:text="Gọi thêm món"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/btnThanhToan"
         app:layout_constraintEnd_toStartOf="@+id/btnThanhToan"
         app:layout_constraintTop_toTopOf="@+id/btnThanhToan" />

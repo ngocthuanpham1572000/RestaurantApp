@@ -1,4 +1,4 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +12,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.parkingadmin.function.MD5;
+import com.example.parkingadmin.R;
+import com.example.parkingadmin.asynctaskloader.AdminLoader;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -25,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     LoaderManager loaderManager;
     String BamMatKhau;
     public  static  int Ma_Dang_Nhap=100;
+    public static String TenNhanVien="";
+    public static  int Ma_NV=0;
+    public static String TaiKhoanNV="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         try{
             int o=0;
             String tt="25f9e794323b453885f5181f1b624d0b";
-            BamMatKhau=MD5.md5(MatKhau.getText().toString());
+            BamMatKhau= MD5.md5(MatKhau.getText().toString());
             JSONObject jsonObject=new JSONObject(data);
             Log.d("Testnhanvien",jsonObject.toString());
             JSONArray jsonArray=jsonObject.getJSONArray("data");
@@ -62,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
                 if(TaiKhoan.getText().toString().equals(jsonObject1.getString("TaiKhoan"))&&BamMatKhau.equals(jsonObject1.getString("MatKhau")))
                 {
-                    Intent intent=new Intent(this,MainMenu.class);
+                    Intent intent=new Intent(this, MainMenu.class);
                     Bundle bundle=new Bundle();
                     bundle.putString("TaiKhoan",jsonObject1.getString("TaiKhoan"));
                     bundle.putString("TenNV",jsonObject1.getString("TenNV"));
@@ -70,9 +78,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     bundle.putString("GioiTinh",jsonObject1.getString("GioiTinh"));
                     bundle.putString("MatKhau",jsonObject1.getString("MatKhau"));
                     bundle.putInt("Id",jsonObject1.getInt("id"));
+                    TenNhanVien=jsonObject1.getString("TenNV");
+                    Ma_NV=jsonObject1.getInt("id");
+                    TaiKhoanNV=jsonObject1.getString("TaiKhoan");
                     intent.putExtra(MA_DANGNHAP,bundle);
                     startActivity(intent);
                     o++;
+                    Toast.makeText(this,"Đăng nhập thành công",Toast.LENGTH_LONG).show();
                 }
             }
             if(o==0)

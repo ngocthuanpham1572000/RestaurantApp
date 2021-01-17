@@ -4,16 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_setupban">
-    <Button
-        android:id="@+id/btnGopBan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/g_p_b_n"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    tools:context=".activity.activity_setupban">
 
     <TextView
         android:id="@+id/txtTenBan_setup"
@@ -101,8 +92,10 @@
         android:layout_width="122dp"
         android:layout_height="53dp"
         android:layout_marginTop="64dp"
-        android:text="@string/moban"
+        android:backgroundTint="#FFC107"
         android:onClick="ClickMoBan"
+        android:text="@string/moban"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"

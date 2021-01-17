@@ -13,33 +13,33 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity_info"></activity>
-        <activity android:name=".activity_changepass" />
+        <activity android:name=".activity.activity_info"></activity>
+        <activity android:name=".activity.activity_changepass" />
         <activity
-            android:name=".activity_thanhtoan"
+            android:name=".activity.activity_thanhtoan"
             android:label="Thanh toán"
-            android:parentActivityName=".activity_mondachon" />
+            android:parentActivityName=".activity.activity_mondachon" />
         <activity
-            android:name=".activity_setupban"
+            android:name=".activity.activity_setupban"
             android:label="Lập bàn"
-            android:parentActivityName=".activity_ban" />
+            android:parentActivityName=".activity.activity_ban" />
         <activity
-            android:name=".activity_mondachon"
+            android:name=".activity.activity_mondachon"
             android:label="Các món đã chọn"
-            android:parentActivityName=".activity_menu_food" />
+            android:parentActivityName=".activity.activity_menu_food" />
         <activity
-            android:name=".activity_ban"
+            android:name=".activity.activity_ban"
             android:label="Danh sách bàn"
-            android:parentActivityName=".MainMenu" />
+            android:parentActivityName=".activity.MainMenu" />
         <activity
-            android:name=".activity_menu_food"
+            android:name=".activity.activity_menu_food"
             android:label="Danh sách món"
-            android:parentActivityName=".activity_ban" />
+            android:parentActivityName=".activity.activity_ban" />
         <activity
-            android:name=".MainMenu"
+            android:name=".activity.MainMenu"
             android:label="Menu" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:label="Đăng nhập">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

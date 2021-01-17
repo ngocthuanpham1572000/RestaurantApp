@@ -1,4 +1,4 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.model;
 
 public class ThucDon {
     public  static  final  String  TABLE_NAME = "THUC_DON";

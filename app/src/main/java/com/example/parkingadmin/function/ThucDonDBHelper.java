@@ -1,4 +1,4 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.function;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
+
+import com.example.parkingadmin.model.ThucDon;
 
 import java.util.LinkedList;
 
@@ -218,20 +220,7 @@ public class ThucDonDBHelper extends SQLiteOpenHelper {
         return  delete;
     }
     public long GoiMonAn(int maban){
-       /* SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(ThucDon.COL_TRANGTHAI, 0);
-
-        String selection = ThucDon.COL_MABAN + " = ?";
-        String[] selectvalue = {String.valueOf(maban)};
-
-        int update = db.update(
-                ThucDon.TABLE_NAME,
-                values,
-                selection,        // ma ban
-                selectvalue// ma ban vưa chon
-        );
-        return update;*/
+       
         long kq=0;
         LinkedList<ThucDon> td=DSgiohangtheoma(maban);
         for(int i=0;i<td.size();i++)

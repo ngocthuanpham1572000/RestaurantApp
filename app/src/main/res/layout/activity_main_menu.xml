@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainMenu"
+    tools:context=".activity.MainMenu"
     android:orientation="vertical"
     >
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -20,8 +22,7 @@
                 android:id="@+id/topArea"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@drawable/gradient"
-                >
+                android:background="@drawable/gradient">
 
 
                 <LinearLayout

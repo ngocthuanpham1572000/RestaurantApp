@@ -1,4 +1,4 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,11 +15,16 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+
+import com.example.parkingadmin.model.MonAn;
+import com.example.parkingadmin.R;
+import com.example.parkingadmin.function.ThucDonDBHelper;
+import com.example.parkingadmin.adapter.monanadapter;
+import com.example.parkingadmin.asynctaskloader.MonAnLoader;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -167,7 +172,7 @@ public class activity_menu_food extends AppCompatActivity implements LoaderManag
 
 
     public void ClickMondachon(View view) {
-        Intent intent = new Intent(this,activity_mondachon.class);
+        Intent intent = new Intent(this, activity_mondachon.class);
         startActivity(intent);
     }
 }

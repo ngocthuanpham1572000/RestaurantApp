@@ -1,4 +1,4 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.model;
 
 public class HoaDon {
     public HoaDon(int maban, int manv, double tongtien, String thoigianlap) {

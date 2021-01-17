@@ -1,4 +1,4 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -8,10 +8,14 @@ import androidx.loader.content.Loader;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.parkingadmin.R;
+import com.example.parkingadmin.activity.activity_menu_food;
+import com.example.parkingadmin.adapter.Adaptertable;
+import com.example.parkingadmin.asynctaskloader.SetupLoader;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -58,7 +62,7 @@ public class activity_setupban extends AppCompatActivity implements LoaderManage
             String ketqua=jsonObject.getString("result");
             if(ketqua.equals("success"))
             {
-                Intent intent =new Intent(this,activity_menu_food.class);
+                Intent intent =new Intent(this, activity_menu_food.class);
                int maban;
                 maban=bundle.getInt("id");
                 /*intent.putExtra("id",maban);*/

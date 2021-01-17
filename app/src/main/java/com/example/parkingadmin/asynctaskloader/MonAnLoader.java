@@ -1,4 +1,4 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.asynctaskloader;
 
 import android.content.Context;
 
@@ -6,19 +6,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.loader.content.AsyncTaskLoader;
 
-public class AdminLoader extends AsyncTaskLoader<String> {
-    public AdminLoader(@NonNull Context context) {
+import com.example.parkingadmin.function.NetworkUnit;
+
+public class MonAnLoader extends AsyncTaskLoader<String> {
+    public MonAnLoader(@NonNull Context context) {
         super(context);
     }
 
     @Nullable
     @Override
     public String loadInBackground() {
-        return NetworkUnit.getDangNhap();
+        return NetworkUnit.getMoAn();
     }
     @Override
     protected void onStartLoading() {
         super.onStartLoading();
         forceLoad();
     }
+
 }

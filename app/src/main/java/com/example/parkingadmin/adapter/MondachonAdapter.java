@@ -1,8 +1,6 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +12,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.parkingadmin.R;
+import com.example.parkingadmin.model.ThucDon;
+import com.example.parkingadmin.function.ThucDonDBHelper;
+import com.example.parkingadmin.activity.activity_menu_food;
 
 import java.lang.ref.WeakReference;
 import java.util.LinkedList;
@@ -43,7 +46,7 @@ public class MondachonAdapter extends RecyclerView.Adapter<MondachonAdapter.Mond
     public void onBindViewHolder(@NonNull MondachonHolder holder, int position) {
         ThucDon td=thucDons.get(position);
         holder.txtMon.setText(td.getTenmon());
-        holder.txtGia.setText(Double.toString(td.getDongia()));
+        holder.txtGia.setText(Double.toString(td.getDongia())+"00 đ");
         holder.txtSL.setText(Integer.toString(td.getSoluong()));
         if(td.getTrangthai()==1) {
             int white = ContextCompat.getColor(context, R.color.white);
@@ -126,7 +129,7 @@ public class MondachonAdapter extends RecyclerView.Adapter<MondachonAdapter.Mond
             thucDons=thucDonDBHelper.DSgiohangtheoma(activity_menu_food.Maban);
             mondachonAdapter.notifyDataSetChanged();
             double Tong=thucDonDBHelper.TongTien(activity_menu_food.Maban);
-            txtTong.get().setText("Tổng: "+ Double.toString(Tong)+"đ");
+            txtTong.get().setText("Tổng: "+ Double.toString(Tong)+"00 đ");
         }
     }
 }

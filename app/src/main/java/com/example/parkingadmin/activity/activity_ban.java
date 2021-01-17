@@ -1,4 +1,4 @@
-package com.example.parkingadmin;
+package com.example.parkingadmin.activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,10 +12,13 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.TextSwitcher;
+
+import com.example.parkingadmin.R;
+import com.example.parkingadmin.adapter.Adaptertable;
+import com.example.parkingadmin.asynctaskloader.FetchLoaderTable;
+import com.example.parkingadmin.model.infoban;
 
 import org.json.JSONArray;
 import org.json.JSONException;

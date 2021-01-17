@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".activity.MainActivity"
     android:background="@drawable/gradient">
 
 
@@ -74,21 +74,11 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
             android:background="@color/colorPrimaryDark"
-            android:text="Login"
             android:onClick="clickLogin"
+            android:text="Đăng nhập"
             android:textColor="#fff"
             android:textSize="20sp"
             android:textStyle="normal" />
-
-        <TextView
-            android:id="@+id/textViewForgotPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/buttonLogin"
-            android:layout_centerHorizontal="true"
-            android:text="Forgot Password?"
-            android:textColor="#fff"
-            android:textSize="20sp" />
 
         <RelativeLayout
             android:id="@+id/login_fragment_Progressdialog"
