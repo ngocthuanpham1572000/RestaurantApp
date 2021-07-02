@@ -36,6 +36,7 @@ public class activity_ban extends AppCompatActivity implements LoaderManager.Loa
     EditText edSearch;
     LinkedList<infoban> TimKiemList;
     Context context;
+    njskhgdgngdjkhldkfgkbjdfgbjsdfkghbsdg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
